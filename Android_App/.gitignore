@@ -1,0 +1,35 @@
+# Gradle files
+.gradle/
+build/
+local.properties
+
+# Android Studio files
+/.idea/
+/.cxx/
+/captures/
+/navigation/
+/app/app.iml
+/app/build/
+/app/release/
+/app/debug/
+
+# Generated files
+*.apk
+*.ap_
+*.class
+*.dex
+*.pro
+*.o
+*.so
+*.log
+*.cache
+*.tmp
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Keystore files (if not managed by a secure mechanism)
+/keystore.jks
+/release.jks

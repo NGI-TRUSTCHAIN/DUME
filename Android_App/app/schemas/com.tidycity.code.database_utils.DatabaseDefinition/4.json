@@ -1,0 +1,140 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 4,
+    "identityHash": "46f02f129b69563f28e555dad1d84d8b",
+    "entities": [
+      {
+        "tableName": "VideoStructure",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`videoName` TEXT NOT NULL, `user` TEXT NOT NULL, `currentStatus` TEXT NOT NULL, `uploadedPercentage` INTEGER NOT NULL, `totalFrames` INTEGER NOT NULL, `finishTime` TEXT NOT NULL, PRIMARY KEY(`videoName`))",
+        "fields": [
+          {
+            "fieldPath": "videoName",
+            "columnName": "videoName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user",
+            "columnName": "user",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "current",
+            "columnName": "currentStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "progress",
+            "columnName": "uploadedPercentage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "framesLength",
+            "columnName": "totalFrames",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endDate",
+            "columnName": "finishTime",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "videoName"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "FrameStructure",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`frameId` TEXT NOT NULL, `videoNameID` TEXT NOT NULL, `frame` TEXT NOT NULL, `location` TEXT NOT NULL, `classes` TEXT NOT NULL, PRIMARY KEY(`frameId`))",
+        "fields": [
+          {
+            "fieldPath": "frameId",
+            "columnName": "frameId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "videoNameID",
+            "columnName": "videoNameID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "frame",
+            "columnName": "frame",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "location",
+            "columnName": "location",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "classes",
+            "columnName": "classes",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "frameId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "UserStructure",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`email` TEXT NOT NULL, `userName` TEXT NOT NULL, `password` TEXT NOT NULL, PRIMARY KEY(`email`))",
+        "fields": [
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user",
+            "columnName": "userName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pwd",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "email"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '46f02f129b69563f28e555dad1d84d8b')"
+    ]
+  }
+}

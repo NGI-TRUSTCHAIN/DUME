@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.HomeActivity">
+
+    <ImageView
+        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/image"
+        android:background="@drawable/background"/>
+
+    <TextView
+        android:id="@+id/welcomeUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/welcome"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        android:layout_marginVertical="15dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/green_background"
+        android:background="@drawable/ic_baseline_settings_24" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcomeUser"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnCamera"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Data Acquisition"
+        android:backgroundTint="@color/green_background"
+        android:drawableLeft="@drawable/ic_baseline_video_camera_back_24"
+        android:textSize="20dp"
+        android:fontFamily="@font/acme_regular"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btnHistory"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/upload_history"
+        android:drawableLeft="@drawable/ic_baseline_work_history_24"
+        android:backgroundTint="@color/green_background"
+        android:textSize="20dp"
+        android:fontFamily="@font/acme_regular"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCamera" />
+
+    <Button
+        android:id="@+id/btnHelp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Access"
+        android:backgroundTint="@color/green_background"
+        android:textSize="20dp"
+        android:fontFamily="@font/acme_regular"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHistory" />
+
+    <Button
+        android:id="@+id/btnHelp1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Settings"
+        android:backgroundTint="@color/green_background"
+        android:textSize="20dp"
+        android:fontFamily="@font/acme_regular"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHelp" />
+
+    <Button
+        android:id="@+id/btnHelp2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Files"
+        android:backgroundTint="@color/green_background"
+        android:textSize="20dp"
+        android:fontFamily="@font/acme_regular"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHelp1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

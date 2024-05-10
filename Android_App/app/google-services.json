@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "552360385907",
+    "project_id": "tidy-city-fbe64",
+    "storage_bucket": "tidy-city-fbe64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552360385907:android:84a3c82da24b87da47f906",
+        "android_client_info": {
+          "package_name": "com.tidycity.code"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "552360385907-iib4abs4ntg7mrrg7nm6e4im4e402np4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsR22MRS4M2oGkZQF_nVQcl1i-53Pda6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "552360385907-iib4abs4ntg7mrrg7nm6e4im4e402np4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
