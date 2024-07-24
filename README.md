@@ -8,6 +8,13 @@ Urban environments face a myriad of challenges, from waste mismanagement to infr
 
 To achieve these goals, Project DUME leverages the Solid Protocol to handle large-scale media datasets in a decentralized manner. The key developments implemented include extending the Solid Protocol for efficient media data management to be used on advanced AI models like EfficientDet and YOLO for real-time urban event detection and characterization. These technological advancements enable seamless and efficient management of urban data while maintaining user sovereignty over their contributions.
 
+## Project Architecture
+
+Below is the architecture diagram of the DUME project:
+
+![DUME Project Architecture](docs/architecture.jpg)
+
+
 ## Components
 
 ### Solid Server
