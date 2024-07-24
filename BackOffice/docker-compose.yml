@@ -1,0 +1,38 @@
+#version: "3.9"
+
+services:
+
+ theia-backoffice:
+    build: .
+    stdin_open: true
+    tty: true
+    depends_on: 
+    - db
+    ports:
+    - "3000:3000"
+    env_file:
+    - ".env.local"
+    volumes:
+      - api_data:/frontend/IMG_APP/
+ db:
+#    container_name: theia_db
+    image: postgis/postgis:13-3.1-alpine
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - tables_data:/var/lib/postgresql/data
+
+ #app2:
+    #container_name: App2_rx
+    #build: /home/andretorneiro/Desktop/Logimade/Projects/TheiaVision/AIModelsApi/
+    #volumes:
+    # - api_data:/frontend/IMG_APP/
+
+volumes:
+   tables_data:
+   api_data:
+

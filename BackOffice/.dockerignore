@@ -1,0 +1,24 @@
+# ignore all env files, since they are passed in specific files
+.env.local
+
+# dependencies
+*/node_modules
+*/.pnp
+*/.pnp.js
+*/.idea
+
+# next.js
+*/.next/
+*/out/
+
+# typescript
+*/*.tsbuildinfo
+*/next-env.d.ts
+
+# prisma commands
+*/.prisma-*
+
+# gitignore file
+.gitignore
+
+

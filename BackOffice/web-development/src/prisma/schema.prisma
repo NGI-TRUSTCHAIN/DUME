@@ -1,0 +1,321 @@
+// generator zod {
+//   provider         = "zod-prisma-types"
+//   output           = "./generated/zod" // default is ./generated/zod
+//   useMultipleFiles = false
+// }
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  // url        = "postgresql://postgres:postgres@localhost:5432/postgres?schema=public"
+  extensions = [postgis]
+}
+
+model Country {
+  id           Int    @id @default(autoincrement())
+  name         String @unique
+  abbreviation String
+  phoneCode    Int    @db.SmallInt
+  users        User[]
+}
+
+model Notifications {
+  id          Int     @id @default(autoincrement())
+  description String
+  enabled     Boolean
+  users       User[]
+}
+
+model User {
+  id                   Int                   @id @default(autoincrement())
+  email                String                @unique
+  password             String
+  name                 String?
+  active               Boolean               @default(false)
+  createdAt            DateTime              @default(now())
+  profilePicture       String?
+  countryId            Int?
+  notificationId       Int?
+  ActivateToken        ActivateToken[]
+  businessAccountUsers BusinessAccountUser[]
+  creditcCards         CreditCard[]
+  invoices             Invoice[]
+  passwordResetTokens  PasswordResetToken[]
+  subscriptions        Subscription[]
+  country              Country?              @relation(fields: [countryId], references: [id])
+  notification         Notifications?        @relation(fields: [notificationId], references: [id])
+  roles                UserRoles[]
+  videos               Video[]
+}
+
+model BusinessAccount {
+  id            Int                   @id @default(autoincrement())
+  name          String
+  dateJoined    DateTime              @default(now())
+  address       String?
+  VAT           Int?
+  users         BusinessAccountUser[]
+  invoices      Invoice[]
+  subscriptions Subscription[]
+}
+
+model BusinessAccountUser {
+  userId            Int
+  businessAccountId Int
+  isAdmin           Boolean
+  businessAccount   BusinessAccount @relation(fields: [businessAccountId], references: [id])
+  user              User            @relation(fields: [userId], references: [id])
+
+  @@id([userId, businessAccountId])
+}
+
+model CreditCard {
+  id            Int     @id @default(autoincrement())
+  number        Int
+  expiracyMonth Int
+  expericyYear  Int
+  cvc           Int
+  holdername    String
+  isActive      Boolean
+  userId        Int
+  user          User    @relation(fields: [userId], references: [id])
+}
+
+model Roles {
+  id          Int           @id @default(autoincrement())
+  name        String
+  description String
+  permissions Permissions[]
+  userRoles   UserRoles[]
+}
+
+model Permissions {
+  id     Int    @id @default(autoincrement())
+  access String
+  roleId Int
+  role   Roles  @relation(fields: [roleId], references: [id])
+}
+
+model UserRoles {
+  roleId Int
+  userId Int
+  role   Roles @relation(fields: [roleId], references: [id])
+  user   User  @relation(fields: [userId], references: [id])
+
+  @@id([userId, roleId])
+}
+
+model ActivateToken {
+  id          Int       @id @default(autoincrement())
+  token       String    @unique
+  createdAt   DateTime  @default(now())
+  activatedAt DateTime?
+  userId      Int
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model PasswordResetToken {
+  id        Int       @id @default(autoincrement())
+  token     String    @unique
+  createdAt DateTime  @default(now())
+  resetAt   DateTime?
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model PricingPlan {
+  id            Int            @id @default(autoincrement())
+  name          String         @unique
+  price         Int
+  description   String
+  duration      DateTime
+  isActive      Boolean
+  invoices      Invoice[]
+  subscriptions Subscription[]
+}
+
+model InvoiceStatus {
+  id    Int    @id @default(autoincrement())
+  value String @unique
+}
+
+model Subscription {
+  id                   Int                   @id @default(autoincrement())
+  duration             DateTime
+  price                Int
+  princingPlanId       Int
+  userId               Int
+  businessAccountId    Int
+  invoiceSubscriptions InvoiceSubscription[]
+  businessAccount      BusinessAccount       @relation(fields: [businessAccountId], references: [id])
+  princingPlan         PricingPlan           @relation(fields: [princingPlanId], references: [id])
+  user                 User                  @relation(fields: [userId], references: [id])
+}
+
+model Invoice {
+  id                   Int                   @id @default(autoincrement())
+  dateIssue            DateTime
+  dateDue              DateTime
+  princingPlanId       Int
+  userId               Int
+  businessAccountId    Int
+  businessAccount      BusinessAccount       @relation(fields: [businessAccountId], references: [id])
+  princingPlan         PricingPlan           @relation(fields: [princingPlanId], references: [id])
+  user                 User                  @relation(fields: [userId], references: [id])
+  invoiceSubscriptions InvoiceSubscription[]
+}
+
+model InvoiceSubscription {
+  subscriptionId Int
+  invoiceId      Int
+  invoice        Invoice      @relation(fields: [invoiceId], references: [id])
+  subscription   Subscription @relation(fields: [subscriptionId], references: [id])
+
+  @@id([subscriptionId, invoiceId])
+}
+
+model Device {
+  id       Int     @id @default(autoincrement())
+  name     String  @unique
+  captures Video[]
+}
+
+model Video {
+  // id                    Int                                  @id @default(autoincrement())
+  id                    String                               @id
+  dateStart             DateTime
+  dateEnd               DateTime
+  coordinateStart       Unsupported("geometry(Point, 4326)")
+  coordinateEnd         Unsupported("geometry(Point, 4326)")
+  uploadStatus          Int                                  @default(0) @db.SmallInt
+  dateBeginTransmission DateTime                             @default(now())
+  dateEndTransmission   DateTime?
+  distanceTravelled     Int                                  @default(0) @db.SmallInt
+  receivedFrames        Int                                  @default(0) @db.SmallInt
+  totalFrames           Int                                  @db.SmallInt
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  deviceId Int
+  device   Device @relation(fields: [deviceId], references: [id])
+
+  images Image[]
+
+  // @@index([coordinateStart, coordinateEnd], map: "videoCoordinates", type: Gist)
+}
+
+model Image {
+  // id             Int                                  @id @default(autoincrement())
+  id             String                               @id
+  date           DateTime
+  coordinates    Unsupported("geometry(Point, 4326)")
+  url            String
+  dateReceived   DateTime                             @default(now())
+  classified     Boolean                              @default(false)
+  dateClassified DateTime?
+  annotations    Annotation[]
+  occurrences    Occurrence[]
+  videoId        String
+  video          Video                                @relation(fields: [videoId], references: [id], onDelete: Cascade)
+}
+
+model ClassificationState {
+  id          Int          @id @default(autoincrement())
+  state       String
+  description String
+  annotations Annotation[]
+}
+
+model Model {
+  id              Int              @id @default(autoincrement())
+  description     String
+  accuracy        Float
+  dateCreated     DateTime         @default(now())
+  dateTrained     DateTime
+  modelClasses    ModelClass[]
+  modelExecutions ModelExecution[]
+}
+
+model ModelExecution {
+  id          Int          @id @default(autoincrement())
+  machine     Int
+  dateStart   DateTime
+  dateEnd     DateTime     @default(now())
+  modelId     Int
+  annotations Annotation[]
+  model       Model        @relation(fields: [modelId], references: [id])
+}
+
+model Class {
+  id           Int          @id @default(autoincrement())
+  name         String
+  annotations  Annotation[]
+  modelClasses ModelClass[]
+  occurrence   Occurrence[]
+}
+
+model ModelClass {
+  modelId Int
+  classId Int
+  class   Class @relation(fields: [classId], references: [id])
+  model   Model @relation(fields: [modelId], references: [id])
+
+  @@id([modelId, classId])
+}
+
+model Annotation {
+  id               Int                 @id @default(autoincrement())
+  roi              String
+  imageId          String
+  stateId          Int
+  modelExecutionId Int
+  classId          Int
+  class            Class               @relation(fields: [classId], references: [id])
+  image            Image               @relation(fields: [imageId], references: [id])
+  modelExecution   ModelExecution      @relation(fields: [modelExecutionId], references: [id])
+  state            ClassificationState @relation(fields: [stateId], references: [id])
+}
+
+model EventState {
+  id           Int           @id @default(autoincrement())
+  state        String
+  events       Event[]
+  eventsStatus EventStatus[]
+}
+
+model Event {
+  id           Int           @id @default(autoincrement())
+  description  String
+  zipCode      String        @db.VarChar(10)
+  number       Int?
+  address      String?
+  eventStateId Int
+  eventState   EventState    @relation(fields: [eventStateId], references: [id])
+  eventsStatus EventStatus[]
+}
+
+model EventStatus {
+  id           Int        @id @default(autoincrement())
+  date         DateTime
+  active       Boolean
+  eventStateId Int
+  eventId      Int
+  event        Event      @relation(fields: [eventId], references: [id])
+  eventState   EventState @relation(fields: [eventStateId], references: [id])
+}
+
+model Occurrence {
+  id      Int      @id @default(autoincrement())
+  date    DateTime @default(now())
+  classId Int
+  class   Class    @relation(fields: [classId], references: [id])
+  state   String
+  imageId String
+  image   Image    @relation(fields: [imageId], references: [id], onDelete: Cascade)
+}

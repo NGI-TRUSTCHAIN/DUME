@@ -1,0 +1,6 @@
+- Icons e botões a roxo #984bff
+- Tópicos e textos principais a azul #1e0050
+- Textos secundários a azul #1e0050 com 50% opacidade
+- elementos texto em destaques a roxo #984bff
+- input texto outlined a roxo #984bff
+
