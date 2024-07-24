@@ -18,9 +18,9 @@ Below is the architecture diagram of the DUME project:
 ## Components
 
 ### Solid Server
-<p style="text-align: justify;">
+
 The **Solid Server** is an implementation of the [Solid Protocol](https://solidproject.org/), designed to decentralize data storage and management. Our implementation is based on [node-solid-server](https://github.com/nodeSolidServer/node-solid-server), which provides secure and scalable decentralized data management.
-</p>
+
 For more details about Solid, check out the [Solid Project](https://solidproject.org/about).
 
 
