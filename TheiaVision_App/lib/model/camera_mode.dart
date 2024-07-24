@@ -1,0 +1,5 @@
+enum CameraMode{
+
+  picture, video
+
+}

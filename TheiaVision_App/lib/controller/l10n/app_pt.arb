@@ -1,0 +1,297 @@
+{
+  "provider_text": "Texto do provider",
+  "change_provider_text": "Mudar o texto do Provider",
+  "save": "Guardar",
+  "test_page_title": "Página de test",
+  "language": "Idioma",
+  "network_request": "Pedido à network",
+  "request": "Pedido",
+  "schedule_network_request": "Criar pedido à network",
+  "notification": "Notificação",
+  "create": "Criar",
+  "street_viewer": "Visualização da Rua",
+  "see_pdf": "Ver PDF",
+  "email_form_label": "Email",
+  "password_form_label": "Palavra-passe",
+  "welcome_text": "BEM-VINDO!",
+  "forgot_password": "Esqueceu-se da sua palavra-passe?",
+  "no_account": "Não tem uma conta?",
+  "login_button": "LOGIN",
+  "create_account_title": "REGISTO",
+  "name_form_label": "Nome",
+  "confirm_password_form_label": "Confirmar Palavra-passe",
+  "register_button": "REGISTAR",
+  "already_have_account": "Já tem uma conta?",
+  "mandatory_fields": "*Campos de preenchimento obrigatório",
+  "today_option": "Hoje",
+  "week_option": "Semana",
+  "month_option": "Mês",
+  "see_more_button": "Ver detalhes",
+  "tasks": "Tarefas",
+  "id": "ID",
+  "type_of_event": "Tipo de Ocorrência",
+  "localization": "Localização",
+  "objectives_of_the_week": "Objetivos da semana",
+  "notifications": "Notificações",
+  "videos": "Vídeos",
+  "camera": "Câmara",
+  "occurrences": "Ocorrências",
+  "occurrence": "Ocorrência",
+  "map": "Mapa",
+  "homepage": "Início",
+  "origin": "Origem",
+  "date": "Data",
+  "uploadState": "Estado de Upload",
+  "all": "{Todos, select, male{Todos} female{Todas} other{Todos}}",
+  "@all": {
+    "description": "Todos em português para todos os generos",
+    "placeholders": {
+      "generos": {
+        "type": "String"
+      }
+    }
+  },
+  "complete": "Completo",
+  "error": "Erro",
+  "uploading": "Uploading",
+  "waiting": "À Espera",
+  "to": "A",
+  "from": "De",
+  "nNotificationsToday": "{count, plural, =0{Não tem notificações novas hoje.} =1{Tem 1 nova notificação hoje.} other{Tem {count} notificações novas hoje.}}",
+  "hello": "Olá, {userName}!",
+  "my_packages": "Os meus pacotes",
+  "events_package": "Ocorrências",
+  "api_package": "API",
+  "images_package": "Imagens",
+  "change_password": "Mudar Palavra-passe",
+  "logout": "Terminar sessão",
+  "user": "Utilizador",
+  "invoiced_on": "Faturado em",
+  "type": "Tipo",
+  "unknown": "Desconhecido",
+  "state": "Estado",
+  "occurrence_state": "{state, select, submitted{Submetida} submittedForManualConfirmation{Submetida para Confirmação Manual} confirmed{Confirmada} unconfirmed{Não Confirmada} definitelyUnconfirmed{Rejeitada} resolved{Resolvida} inRevision{Em Revisão} other{Error}}",
+  "submitted": "Submetida",
+  "submittedForManualConfirmation": "Submetida para Confirmação Manual",
+  "confirmed": "Confirmada",
+  "unconfirmed": "Não Confirmada",
+  "definitelyUnconfirmed": "Rejeitada",
+  "resolved": "Resolvida",
+  "inRevision": "Em Revisão",
+  "warning_pop_up": "Atenção",
+  "occurrence_type": "{type, select, graffiti{Graffiti} cardboard{Cartão} trash{Lixo} other{Desconhecido}}",
+
+  "graffiti": "Graffiti",
+  "cardboard": "Cartão",
+  "trash": "Lixo",
+
+
+  "ram_warning": "Este método de gravação consome uma quantidade considerável de recursos, o que pode resultar num desempenho insatisfatório em dispositivos móveis de gama mais baixa.\n\nDeseja continuar?",
+  "continue_word": "Continuar",
+  "cancel": "Cancelar",
+  "low_space_pop_up": "Pouco Espaço",
+  "low_space_warning": "Não é possível gravar mais imagens devido à falta de memória. Liberte espaço ou mantenha-se conectado à internet para carregar as imagens atualmente armazenadas para o servidor.",
+  "ok": "Ok",
+  "choose_lang": "Escolha um idioma",
+  "recover_pass": "Recuperar Palavra-passe",
+  "confirm": "Confirmar",
+  "delete_account": "Eliminar Conta",
+  "delete": "Eliminar",
+  "delete_text": "Tem a certeza que quer eliminar a sua conta?\n\nEsta ação vai levar a que a sua conta seja permanentemente perdida.",
+  "change_email": "Alterar Email",
+  "change_email_text": "Tem a certeza que quer alterar o seu email?\n\nPara esta mudança ocorrer terá de primeiro confirmar o seu novo email.",
+  "settings": "Configurações",
+  "upload_settings": "Definições de Upload",
+  "wifi": "Wifi",
+  "portuguese": "Português",
+  "english": "Inglês",
+  "wifi_data": "Wifi + Dados Móveis",
+  "no_items": "Não existem {item} para mostrar.",
+  "@no_items": {
+    "description": "No items message",
+    "placeholders": {
+      "item": {
+        "type": "String",
+        "example": "videos"
+      }
+    }
+  },
+  "error_items": "Houve um erro inesperador ao tentar carregar {item}. Por favor tente novamente.",
+  "@error_items": {
+    "description": "Error loading items",
+    "placeholders": {
+      "item": {
+        "type": "String",
+        "example": "videos"
+      }
+    }
+  },
+  "notif_new": "Novas",
+  "notif_old": "Velhas",
+  "notif_state": "Estado",
+  "notif_type": "Tipo",
+  "annotate": "Anotar",
+  "notif_type_video": "Vídeos",
+  "notif_type_occurrence": "Ocorrências",
+  "notif_type_other": "Outras",
+  "notif_type_updates": "Atualizações",
+  "notif_type_packages": "Pacotes",
+  "notif_type_image": "Imagens",
+
+  "image": "Foto",
+  "new_video": "Um novo vídeo foi adicionado à fila. Por favor, recarregue a página para vê-lo.",
+  "sync_video": "O vídeo foi sincronizado com o servidor.",
+  "see_map": "Ver no mapa",
+  "delete_video": "Apagar Vídeo",
+  "local_video_delete": "Este vídeo só existe no seu dispositivo e será enviado para o servidor em breve. Eliminá-lo vai fazê-lo desaparecer permanentemente.\n\n Tem a certeza de que quer continuar?",
+  "server_video_delete": "Tem a certeza que quer eliminar este vídeo permanentemente?",
+  "delete_success": "O vídeo foi apagado com sucesso",
+  "error_uploading": "Erro: O vídeo já está a ser enviado para o servidor. Por favor, recarregue a página.",
+  "error_uploaded": "Erro: O vídeo já foi enviado. Por favor, recarregue a página.",
+  "no_images_available": "Sem imagens disponiveis",
+  "frame_in_server": "Imagens no servidor",
+  "events": "Ocorrências",
+  "no_events_available": "Este vídeo não tem ocorrências",
+  "distance_travelled": "Distancia Percorrida",
+  "start_date": "Data de Início",
+  "end_date": "Data de Fim",
+  "change_password_text": "Para solicitar uma alteração de palavra-passe, por favor, insira a sua palavra-passe atual.\n\nVocê receberá um e-mail posteriormente para alterar a sua palavra-passe.",
+  "email_sent": "O email foi enviado",
+  "all_fields_must_be_filled": "Todos os campos devem ser preenchidos.",
+  "email_field_must_not_be_empty": "O campo de email deve ser preenchido.",
+  "new_email_dif_old_email": "O novo email não pode ser igual ao antigo.",
+  "new_email_received": "Recebeu um email no seu novo endereço de email. Por favor, confirme-o antes de prosseguir.",
+  "account_deleted_success": "Conta eliminada com sucesso.",
+  "name_cannot_be_empty": "O nome não pode estar vazio",
+  "new_name_not_equal_to_old": "O novo nome não pode ser igual ao antigo",
+  "name_changed_success": "O nome foi alterado com sucesso.",
+  "picture_changed_success": "Imagem alterada com sucesso.",
+  "all_fields_except_name_must_be_filled": "Todos os campos exceto o nome devem ser preenchidos",
+  "password_does_not_match": "A palavra-passe não corresponde",
+  "password_requirements": "A palavra-passe deve ter pelo menos 6 caracteres, 1 número, 1 letra e 1 caractere especial",
+  "account_created_success": "Account created successfully.",
+  "coming_soon_title": "Em breve!",
+  "coming_soon_message": "Esta aplicação ainda está em desenvolvimento e novos recursos ainda estão a ser adicionados. Por isso, esta página ainda não está disponível.",
+  "other_images_button": "Ver outras imagens do local",
+  "under_revision_button": "Colocar sob revisão",
+  "view_video_button": "Ver vídeo completo",
+  "edit_annotations_button": "Editar Anotação",
+  "manual_confirmation_button": "Pedir Confirmação Manual",
+  "mark_as_solved_button": "Marcar como Resolvido",
+  "clear_all_button": "Limpar tudo",
+  "login_successful_toast": "Login bem sucedido",
+  "no_new_notifications": "Sem novas notificações",
+  "video_text": "Vídeo",
+  "scheduled_video_upload_notification_title": "Upload de Vídeo Agendado",
+  "scheduled_video_upload_notification_message": "📗 O upload do vídeo com ID {videoId} foi agendado.",
+  "@scheduled_video_upload_notification_message": {
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+  "video_uploading_notification_title": "O Vídeo está a ser carregado",
+
+
+
+  "video_uploading_notification_message": "📗 O Vídeo com ID {videoId} estar a ser carregado para o servidor.",
+  "@video_uploading_notification_message": {
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+
+  "scheduled_image_upload_notification_title": "Upload de Fotografia Agendado",
+  "scheduled_image_upload_notification_message": "📗 O upload da Fotografia com ID {videoId} foi agendado.",
+  "@scheduled_image_upload_notification_message": {
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+  "image_uploading_notification_title": "A Fotografia está a ser carregada",
+
+
+
+  "image_uploading_notification_message": "📗 A Fotografia com ID {videoId} estar a ser carregada para o servidor.",
+  "@image_uploading_notification_message": {
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+
+
+  "no_frames": "O Vídeo não tem images. Não é possível guardá-lo.",
+
+
+  "video_uploaded_notification_title": "O Vídeo foi carregado",
+
+  "video_uploaded_notification_message": "📗 O Vídeo com ID {videoId} foi carregado para o servidor com sucesso.",
+  "@video_uploaded_notification_message": {
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+
+  "image_uploaded_notification_title": "A Fotografia foi carregada",
+
+  "image_uploaded_notification_message": "📗 A Fotografia com ID {videoId} foi carregada para o servidor com sucesso.",
+  "@image_uploaded_notification_message": {
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+
+
+  "preparing_video_upload": "A preparar o vídeo para enviar",
+  "cannot_leave_while_recording_toast": "Não é possível sair do ecrã atual enquanto estiver a gravar.",
+  "connection_error_message": "Falha na conexão. Por favor, verifique se está conectado à internet. Enquanto isso, apenas o conteúdo offline será exibido.",
+  "connection_timeout_message": "Tempo de conexão esgotado. Você pode ter um problema de conexão ou o servidor pode estar indisponível no momento. Por favor, tente novamente mais tarde.",
+  "unexpected_error_message": "Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.",
+  "session_expired_toast": "A sua sessão expirou.",
+  "packages" : "Pacotes",
+  "no_account_login" : "Não existe uma conta registada com este email",
+  "wrong_password_login" : "O email e a palavra passe não correspondem",
+  "account_not_activated_login" : "Ativa esta conta no teu email antes de fazer login.",
+  "not_a_valid_email" : "O email não é válido",
+  "account_already_exists" : "Uma conta com este email já existe.",
+  "api_change_settings": "Onde deseja guardar os seus dados?",
+  "solid_api": "Usar Solid",
+  "theia_api": "Usar Theia",
+  "solid_name": "Solid Protocol",
+  "solid_popup_info": "Se pretende proteger os seus dados e aceder-lhes a partir de outros dispositivos, deve utilizar o Solid Protocol.",
+  "theia_api_name": "Theia API",
+  "theia_popup_info": "Se só quiser experimentar a aplicação ou não quiser sincronizar com outros dispositivos, deve utilizar o Theia.",
+  "close_popup": "Fechar",
+  "pod_account_popup": "Crie ou adicione o seu POD",
+  "pod_account_popup_text": "Para configurar o seu data POD, caso ainda não possua um, necessita de o criar. Caso já possua o seu pode-o adicionar.",
+  "create_pod_account": "Criar",
+  "add_pod_account": "Adicionar",
+  "create_pod_form": "Preencha os campos para criar o seu POD",
+  "solid_pod_username": "Username",
+  "add_pod_form": "Preencha os campos para adicionar o seu POD",
+  "pic_video" :"Fotografias são consideradas vídeos com apenas uma imagem",
+  "videos_info" :"Vídeos são todas as imagens capturadas por si incluindo fotos, que são consideradas vídeos com apenas uma imagem",
+  "occurrences_info" :"Ocorrências são problemas urbanos identificados em vídeos",
+  "turn_on" :"Ativar",
+  "location_services_disabled": "Os serviços de localização estão desativados.",
+  "turn_on_location_for_videos": "Tem de ativar os serviços de localização para gravar vídeos ou tirar fotografias.",
+  "no_permission_access_location": "A aplicação não tem permissão para aceder aos serviços de localização.",
+  "allow_location_for_videos": "Tem de permitir que a aplicação utilize os serviços de localização para gravar vídeos ou tirar fotografias."
+}

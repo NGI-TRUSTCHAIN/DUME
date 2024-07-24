@@ -1,0 +1,849 @@
+{
+  "provider_text": "Provider Text",
+  "@provider_text": {
+    "description": "Text before showing the text in the provider"
+  },
+  "change_provider_text": "Change Provider Text",
+  "@change_provider_text": {
+    "description": "Text before changing the text in the provider"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Text for save button"
+  },
+  "test_page_title": "Test Page",
+  "@test_page_title": {
+    "description": "Title for test page"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "language"
+  },
+  "network_request": "Network Request",
+  "@network_request": {
+    "description": "network_request"
+  },
+  "request": "Request",
+  "@request": {
+    "description": "request"
+  },
+  "schedule_network_request": "Schedule Network Request",
+  "@schedule_network_request": {
+    "description": "schedule_network_request"
+  },
+  "notification": "Notification",
+  "@notification": {
+    "description": "notification"
+  },
+  "create": "Create",
+  "@create": {
+    "description": "create"
+  },
+  "street_viewer": "Street Viewer",
+  "@street_viewer": {
+    "description": "street viewer"
+  },
+  "see_pdf": "See PDF",
+  "@see_pdf": {
+    "description": "see pdf"
+  },
+  "email_form_label": "Email",
+  "@email_form_label": {
+    "description": "Email for the form label"
+  },
+  "password_form_label": "Password",
+  "@password_form_label": {
+    "description": "Password for the form label"
+  },
+  "welcome_text": "WELCOME!",
+  "@welcome_text": {
+    "description": "Text for welcome in login page"
+  },
+  "forgot_password": "Did you forget your password?",
+  "@forgot_password": {
+    "description": "Text for forgot password button"
+  },
+  "no_account": "Don't have an account?",
+  "@no_account": {
+    "description": "Text for register button"
+  },
+  "login_button": "LOGIN",
+  "@login_button": {
+    "description": "Text for login button"
+  },
+  "create_account_title": "CREATE AN ACCOUNT",
+  "@create_account_title": {
+    "description": "Text for top of register page"
+  },
+  "name_form_label": "Name",
+  "@name_form_label": {
+    "description": "Text for field name in page register"
+  },
+  "confirm_password_form_label": "Confirm Password",
+  "@confirm_password_form_label": {
+    "description": "Confirm password for the form label"
+  },
+  "register_button": "REGISTER",
+  "@register_button": {
+    "description": "Text for register button"
+  },
+  "already_have_account": "Already have an account?",
+  "@already_have_account": {
+    "description": "Text for button to go to login"
+  },
+  "mandatory_fields": "*Mandatory fields",
+  "@mandatory_fields": {
+    "description": "Text for mandatory fields warning"
+  },
+  "today_option": "Today",
+  "@today_option": {
+    "description": "Today option in Homepage"
+  },
+  "week_option": "Week",
+  "@week_option": {
+    "description": "Week option in Homepage"
+  },
+  "month_option": "Month",
+  "@month_option": {
+    "description": "Month option in Homepage"
+  },
+  "see_more_button": "See more",
+  "@see_more_button": {
+    "description": "Text for See More button in different list"
+  },
+  "tasks": "Tasks",
+  "@tasks": {
+    "description": "Word for tasks in various widgets"
+  },
+  "id": "ID",
+  "@id": {
+    "description": "Word for ID in various widgets"
+  },
+  "type_of_event": "Type of Occurrence",
+  "@type_of_event": {
+    "description": "Words for Type of Event in various widgets"
+  },
+  "localization": "Localization",
+  "@localization": {
+    "description": "Word for localization in various widgets"
+  },
+  "objectives_of_the_week": "Objectives of the week",
+  "@objectives_of_the_week": {
+    "description": "Title for objectives of the week card"
+  },
+  "notifications": "Notifications",
+  "@notifications": {
+    "description": "Title for notifications list"
+  },
+  "videos": "Videos",
+  "@videos": {
+    "description": "Videos name"
+  },
+  "camera": "Camera",
+  "@camera": {
+    "description": "Camera name"
+  },
+  "occurrences": "Occurrences",
+  "@occurrences": {
+    "description": "Occurrences name"
+  },
+  "occurrence": "Occurrence",
+  "@occurrence": {
+    "description": "Occurrence name"
+  },
+  "map": "Map",
+  "@map": {
+    "description": "Homepage name"
+  },
+  "homepage": "Homepage",
+  "@homepage": {
+    "description": "Homepage name"
+  },
+  "origin": "Origin",
+  "@origin": {
+    "description": "Origin word for various widgets"
+  },
+  "date": "Date",
+  "@date": {
+    "description": "Date word for various widgets"
+  },
+  "uploadState": "Upload State",
+  "@uploadState": {
+    "description": "Upload State words for various widgets"
+  },
+  "all": "All",
+  "@all": {
+    "description": "All word for various widgets"
+  },
+  "complete": "Complete",
+  "@complete": {
+    "description": "Complete word for filtering by upload state"
+  },
+  "uploading": "Uploading",
+  "@uploading": {
+    "description": "Uploading word for filtering by upload state"
+  },
+  "waiting": "Waiting",
+  "@waiting": {
+    "description": "Waiting word for upload state"
+  },
+  "error": "Error",
+  "@error": {
+    "description": "Error word for upload state"
+  },
+  "to": "To",
+  "@to": {
+    "description": "Word to specifically used for date ranges ex.: FROM 02-02-2024 TO 04-04-2024"
+  },
+  "from": "From",
+  "@from": {
+    "description": "Word from specifically used for date ranges ex.: FROM 02-02-2024 TO 04-04-2024"
+  },
+  "nNotificationsToday": "{count, plural, =0{You have no new notifications today.} =1{You have 1 new notification today.} other{You have {count} new notifications today.}}",
+  "@nNotificationsToday": {
+    "description": "Number of notifications for today in homepage",
+    "placeholders": {
+      "count": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  },
+  "hello": "Hello, {userName}!",
+  "@hello": {
+    "description": "Hello message",
+    "placeholders": {
+      "userName": {
+        "type": "String",
+        "example": "John"
+      }
+    }
+  },
+  "my_packages": "My Packages",
+  "@my_packages": {
+    "description": "Word for my packages in list title"
+  },
+  "events_package": "Occurrences",
+  "@events_package": {
+    "description": "Name of events package"
+  },
+  "api_package": "API",
+  "@api_package": {
+    "description": "Name of API package"
+  },
+  "images_package": "Images",
+  "@images_package": {
+    "description": "Name of images package"
+  },
+  "change_password": "Change Password",
+  "@change_password": {
+    "description": "Text for change password button"
+  },
+  "logout": "Log out",
+  "@logout": {
+    "description": "Text for log ouy button"
+  },
+  "user": "User",
+  "@user": {
+    "description": "Name of user page"
+  },
+  "invoiced_on": "Invoiced on",
+  "@invoiced_on": {
+    "description": "Invoiced on for packages"
+  },
+  "type": "Type",
+  "@type": {
+    "description": "Type for occurrence filter title"
+  },
+  "unknown": "Unknown",
+  "@unknown": {
+    "description": "Word unknown for filter"
+  },
+  "state": "State",
+  "@state": {
+    "description": "State for occurrence filter title"
+  },
+  "occurrence_state": "{state, select, submitted{Submitted} submittedForManualConfirmation{Submitted For Manual Confirmation} confirmed{Confirmed} unconfirmed{Unconfirmed} definitelyUnconfirmed{Definitely Unconfirmed} resolved{Resolved} inRevision{In Revision} other{Error}}",
+  "@occurrence_state": {
+    "description": "States of occurrences",
+    "placeholders": {
+      "state": {
+        "type": "String"
+      }
+    }
+  },
+  "submitted": "Submitted",
+  "submittedForManualConfirmation": "Submitted For Manual Confirmation",
+  "confirmed": "Confirmed",
+  "unconfirmed": "Unconfirmed",
+  "definitelyUnconfirmed": "Definitely Unconfirmed",
+  "resolved": "Resolved",
+  "inRevision": "In Revision",
+  "warning_pop_up": "Warning",
+
+  "occurrence_type": "{type, select, graffiti{Graffiti} cardboard{Cardboard} trash{Trash} other{Unkown}}",
+  "@occurrence_type": {
+    "description": "Type of occurrences",
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+
+  "graffiti": "Graffiti",
+  "cardboard": "Cardboard",
+  "trash": "Trash",
+
+
+  "@warning_pop_up": {
+    "description": "Warning for word in pop up titles"
+  },
+  "ram_warning": "This recording method consumes a considerable amount of resources, which may result in unsatisfactory performance on lower-end mobile devices.\n\nWould you like to continue?",
+  "@ram_warning": {
+    "description": "Ram warning for camera"
+  },
+  "continue_word": "Continue",
+  "@continue_word": {
+    "description": "Continue for word in pop up button"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel for word in pop up button"
+  },
+  "low_space_pop_up": "Low Space",
+  "@low_space_pop_up": {
+    "description": "Low Space for words in pop up titles"
+  },
+  "low_space_warning": "It's not possible to record more images due to insufficient memory. Free up space or stay connected to the internet to upload the images currently stored to the server.",
+  "@low_space_warning": {
+    "description": "Low Space warning"
+  },
+  "ok": "Ok",
+  "@ok": {
+    "description": "Ok word for buttons"
+  },
+  "choose_lang": "Choose a language",
+  "@choose_lang": {
+    "description": "Choose a language text"
+  },
+  "recover_pass": "Recover Password",
+  "@recover_pass": {
+    "description": "Recover password text"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Confirm text"
+  },
+  "delete_account": "Delete Account",
+  "@delete_account": {
+    "description": "Delete Account text"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete text"
+  },
+  "delete_text": "Are you sure you want to delete your account?\n\nThis action will lead to your account being permanently lost.",
+  "@delete_text": {
+    "description": "Delete text"
+  },
+  "change_email": "Change Email",
+  "@change_email": {
+    "description": "Change Email text"
+  },
+  "change_email_text": "Are you sure you want to change your email?\n\nYou will need to confirm your new email before this change takes effect.",
+  "@change_email_text": {
+    "description": "Delete text"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings text"
+  },
+  "upload_settings": "Upload Settings",
+  "@upload_settings": {
+    "description": "Upload Settings text"
+  },
+  "wifi": "Wifi",
+  "@wifi": {
+    "description": "Wifi text"
+  },
+  "portuguese": "Portuguese",
+  "@portuguese": {
+    "description": "Portuguese text"
+  },
+  "english": "English",
+  "@english": {
+    "description": "English text"
+  },
+  "wifi_data": "Wifi + Mobile Data",
+  "@wifi_data": {
+    "description": "Wifi + Mobile Data text"
+  },
+  "no_items": "No {item} were found.",
+  "@no_items": {
+    "description": "No items message",
+    "placeholders": {
+      "item": {
+        "type": "String",
+        "example": "videos"
+      }
+    }
+  },
+  "error_items": "There was an unexpected error while trying to load the {item}. Please try again.",
+  "@error_items": {
+    "description": "Error loading items",
+    "placeholders": {
+      "item": {
+        "type": "String",
+        "example": "videos"
+      }
+    }
+  },
+  "annotate": "Annotate",
+  "@annotate": {
+    "description": "English text"
+  },
+  "notif_state": "State",
+  "@notif_state": {
+    "description": "English text"
+  },
+  "notif_type": "Type",
+  "@notif_type": {
+    "description": "English text"
+  },
+  "notif_new": "New",
+  "@notif_new": {
+    "description": "English text"
+  },
+  "notif_old": "Old",
+  "@notif_old": {
+    "description": "English text"
+  },
+  "notif_type_video": "Videos",
+  "@notif_type_video": {
+    "description": "English text"
+  },
+  "notif_type_occurrence": "Occurrences",
+  "@notif_type_occurrence": {
+    "description": "English text"
+  },
+  "notif_type_other": "Others",
+  "@notif_type_other": {
+    "description": "English text"
+  },
+  "notif_type_updates": "Updates",
+  "@notif_type_updates": {
+    "description": "English text"
+  },
+  "notif_type_packages": "Packages",
+  "@notif_type_packages": {
+    "description": "English text"
+  },
+  "notif_type_image": "Images",
+
+  "image": "Photo",
+  "@image": {
+    "description": "English text for image"
+  },
+  "new_video": "A new video has been added to the queue. Please reload the page to view it.",
+  "@new_video": {
+    "description": "Text for new video toast"
+  },
+  "sync_video": "The video has been synced with the server.",
+  "@sync_video": {
+    "description": "Text for remove video toast"
+  },
+  "see_map": "See in the map",
+  "@see_map": {
+    "description": "Text for see in map button"
+  },
+  "delete_video": "Delete Video",
+  "@delete_video": {
+    "description": "Text for delete video pop-up title button"
+  },
+  "local_video_delete": "This video only exists on your device and will be uploaded to the server soon. Deleting it will make it disappear permanently.\n\n Are you sure you want to continue?",
+  "@local_video_delete": {
+    "description": "Text for delete video pop-up text button"
+  },
+  "server_video_delete": "Are you sure you want to permanently delete this video?",
+  "@server_video_delete": {
+    "description": "Text for delete video pop-up text button"
+  },
+  "delete_success": "The video was deleted successfully",
+  "@delete_success": {
+    "description": "Text for delete video toast"
+  },
+  "error_uploading": "Error: The video is already being uploaded to the server. Please refresh.",
+  "@error_uploading": {
+    "description": "Text for delete video toast"
+  },
+  "error_uploaded": "Error: The video has already been uploaded. Please refresh.",
+  "@error_uploaded": {
+    "description": "Text for delete video toast"
+  },
+  "no_images_available": "No images available",
+  "@no_images_available": {
+    "description": "Text for when the video has no images available"
+  },
+  "frame_in_server": "Images in the server",
+  "@frame_in_server": {
+    "description": "Text for images in server"
+  },
+  "events": "Occurrences",
+  "@events": {
+    "description": "Text for events"
+  },
+  "no_events_available": "This video does not have occurrences",
+  "@no_events_available": {
+    "description": "Text for when the video has no events available"
+  },
+  "distance_travelled": "Distance Travelled",
+  "@distance_travelled": {
+    "description": "Text for distance travelled"
+  },
+  "start_date": "Start Date",
+  "@start_date": {
+    "description": "Text for start date"
+  },
+  "end_date": "End Date",
+  "@end_date": {
+    "description": "Text for end date"
+  },
+  "change_password_text": "To request a password change please introduce your current password. \n\nYou will receive an email after to change your password.",
+  "@change_password_text": {
+    "description": "Text for change password pop-up"
+  },
+  "email_sent": "The email was sent",
+  "@email_sent": {
+    "description": "Email sent text for toast"
+  },
+  "all_fields_must_be_filled": "All fields must be filled",
+  "@all_fields_must_be_filled": {
+    "description": "All fields must be filled text for toast"
+  },
+  "email_field_must_not_be_empty": "Email field must be filled",
+  "@email_field_must_not_be_empty": {
+    "description": "All email field be filled text for toast"
+  },
+  "new_email_dif_old_email": "The new email cannot be the same as the old one.",
+  "@new_email_dif_old_email": {
+    "description": "New email must not be old email text for toast"
+  },
+  "new_email_received": "You have received an email at your new email address. Please confirm it before proceeding.",
+  "@new_email_received": {
+    "description": "Received email in new email text for toast"
+  },
+  "account_deleted_success": "Account deleted successfully",
+  "@account_deleted_success": {
+    "description": "Account deleted successfully text for toast"
+  },
+  "name_cannot_be_empty": "The name cannot be empty",
+  "@name_cannot_be_empty": {
+    "description": "Error message displayed when the name field is empty"
+  },
+  "new_name_not_equal_to_old": "The new name must not be equal to the old one",
+  "@new_name_not_equal_to_old": {
+    "description": "Error message displayed when the new name is the same as the old one"
+  },
+  "name_changed_success": "The name was changed successfully.",
+  "@name_changed_success": {
+    "description": "Success message displayed when the name is successfully changed"
+  },
+  "picture_changed_success": "Picture changed successfully",
+  "@picture_changed_success": {
+    "description": "Success message displayed when the picture is successfully changed."
+  },
+  "all_fields_except_name_must_be_filled": "All fields except name must be filled",
+  "@all_fields_except_name_must_be_filled": {
+    "description": "Error message displayed when all fields except name are required to be filled"
+  },
+  "password_does_not_match": "Password does not match",
+  "@password_does_not_match": {
+    "description": "Error message displayed when the password and its confirmation do not match"
+  },
+  "password_requirements": "Password must have at least 6 characters, 1 number, 1 letter, and 1 special character",
+  "@password_requirements": {
+    "description": "Error message displayed when the password does not meet the required criteria"
+  },
+  "account_created_success": "Account created successfully.",
+  "@account_created_success": {
+    "description": "Success message displayed when an account is successfully created."
+  },
+  "coming_soon_title": "Coming soon!",
+  "@coming_soon_title": {
+    "description": "Title displayed on the 'Coming soon' page."
+  },
+  "coming_soon_message": "This app is still in development with features still being added so this page still isn't available.",
+  "@coming_soon_message": {
+    "description": "Message displayed on the 'Coming soon' page informing users that the app is still in development."
+  },
+  "other_images_button": "View other images of the location",
+  "@other_images_button": {
+    "description": "Text displayed on the button to view other images of the location."
+  },
+  "under_revision_button": "Put under revision",
+  "@under_revision_button": {
+    "description": "Text displayed on the button to put the item under revision."
+  },
+  "view_video_button": "View full video",
+  "@view_video_button": {
+    "description": "Text displayed on the button to view the full collection."
+  },
+  "edit_annotations_button": "Edit Annotation",
+  "@edit_annotations_button": {
+    "description": "Text displayed on the button to edit the annotation."
+  },
+  "manual_confirmation_button": "Request Manual Confirmation",
+  "@manual_confirmation_button": {
+    "description": "Text displayed on the button to request manual confirmation."
+  },
+  "mark_as_solved_button": "Mark as Solved",
+  "@mark_as_solved_button": {
+    "description": "Text displayed on the button to mark the item as solved."
+  },
+  "clear_all_button": "Clear all",
+  "@clear_all_button": {
+    "description": "Text displayed on the button to clear all notifications."
+  },
+  "login_successful_toast": "Login Successful",
+  "@login_successful_toast": {
+    "description": "Toast message displayed when login is successful."
+  },
+  "no_new_notifications": "No new notifications",
+  "@no_new_notifications": {
+    "description": "Message displayed when there are no new notifications."
+  },
+  "video_text": "Video",
+  "@video_text": {
+    "description": "Text displayed for 'Video'."
+  },
+  "scheduled_video_upload_notification_title": "Scheduled Video Upload",
+  "@scheduled_video_upload_notification_title": {
+    "description": "Title for the scheduled video upload notification."
+  },
+  "scheduled_video_upload_notification_message": "📗 The Upload of the Video with ID {videoId} was scheduled.",
+  "@scheduled_video_upload_notification_message": {
+    "description": "Message for the scheduled video upload notification.",
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+
+  "scheduled_image_upload_notification_title": "Scheduled Picture Upload",
+  "@scheduled_image_upload_notification_title": {
+    "description": "Title for the scheduled video upload notification."
+  },
+  "scheduled_image_upload_notification_message": "📗 The Upload of the Picture with ID {videoId} was scheduled.",
+  "@scheduled_image_upload_notification_message": {
+    "description": "Message for the scheduled video upload notification.",
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+
+  "video_uploading_notification_title": "Video is Uploading",
+  "@video_uploading_notification_title": {
+    "description": "Title for the video uploading notification."
+  },
+  "video_uploading_notification_message": "📗 The Video with ID {videoId} is being uploaded.",
+  "@video_uploading_notification_message": {
+    "description": "Message for the video uploading notification.",
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+
+
+  "image_uploading_notification_title": "Picture is Uploading",
+  "@video_image_notification_title": {
+    "description": "Title for the video uploading notification."
+  },
+  "image_uploading_notification_message": "📗 The Picture with ID {videoId} is being uploaded.",
+  "@video_image_notification_message": {
+    "description": "Message for the video uploading notification.",
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+
+
+
+  "video_uploaded_notification_title": "Video Uploaded",
+  "@video_uploaded_notification_title": {
+    "description": "Title for the video uploaded notification."
+  },
+  "video_uploaded_notification_message": "📗 The Video with ID {videoId} was uploaded successfully.",
+  "@video_uploaded_notification_message": {
+    "description": "Message for the video uploaded notification.",
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+
+  "image_uploaded_notification_title": "Picture Uploaded",
+  "@image_uploaded_notification_title": {
+    "description": "Title for the video uploaded notification."
+  },
+  "image_uploaded_notification_message": "📗 The Picture with ID {videoId} was uploaded successfully.",
+  "@image_uploaded_notification_message": {
+    "description": "Message for the video uploaded notification.",
+    "placeholders": {
+      "videoId": {
+        "type": "String",
+        "example": "videoId"
+      }
+    }
+  },
+
+
+  "preparing_video_upload": "Preparing video upload",
+  "@preparing_video_upload": {
+    "description": "Message displayed when preparing for video upload."
+  },
+  "cannot_leave_while_recording_toast": "Cannot leave current screen while recording.",
+  "@cannot_leave_while_recording_toast": {
+    "description": "Toast message displayed when the user tries to leave the current screen while recording."
+  },
+  "connection_error_message": "Connection failed. Please make sure you are connected to the internet. Meanwhile, only offline content will be shown.",
+  "@connection_error_message": {
+    "description": "Error message displayed when the connection fails."
+  },
+  "connection_timeout_message": "Connection timed out. You might have a connection problem or the server might be unavailable at the moment. Please retry later.",
+  "@connection_timeout_message": {
+    "description": "Error message displayed when the connection times out."
+  },
+  "unexpected_error_message": "An unexpected error has occurred. Please retry later.",
+  "@unexpected_error_message": {
+    "description": "Generic error message displayed when an unexpected error occurs."
+  },
+  "session_expired_toast": "Your session expired.",
+  "@session_expired_toast": {
+    "description": "Toast message displayed when the user's session has expired."
+  },
+  "packages" : "Packages",
+  "@packages": {
+    "description": "Word for packages."
+  },
+  "no_account_login" : "There is no account registered with this email",
+  "@no_account_login": {
+    "description": "Toast message displayed when the user tries to log in with an account that does not exist."
+  },
+  "wrong_password_login" : "Email and password do not match",
+  "@wrong_password_login": {
+    "description": "Toast message displayed when the user tries to log in with the wrong password."
+  },
+  "account_not_activated_login" : "Activate this account in your email before logging in.",
+  "@account_not_activated_login": {
+    "description": "Toast message displayed when the user tries to log into a non-activated account."
+  },
+  "not_a_valid_email" : "The email is not valid",
+  "@not_a_valid_email": {
+    "description": "Toast message displayed when the user tries to use an invalid email."
+  },
+  "account_already_exists" : "An account with this email already exists",
+  "@account_already_exists": {
+    "description": "Toast message displayed when the user tries to create an already existing account."
+  },
+  "api_change_settings": "Where do you want to store your data?",
+  "@api_change_settings": {
+    "description": "Question to choose api to use"
+  },
+  "solid_api": "Use Solid",
+  "@solid_api": {
+    "description": "Text to present solid api option"
+  },
+  "theia_api": "Use Theia",
+  "@theia_api": {
+    "description": "Text to present theia api option"
+  },
+  "solid_name": "Solid Protocol",
+  "@solid_name": {
+    "description": "Title to info popup about solid"
+  },
+  "solid_popup_info": "If you want to secure your data and access it from other devices, you should use Solid.",
+  "@solid_popup_info": {
+    "description": "Info text about solid"
+  },
+  "theia_api_name": "Theia API",
+  "@theia_api_name": {
+    "description": "Title to info popup about theia"
+  },
+  "theia_popup_info": "If you only want to try the app or you don't want to synchronize with other devices, you should use Theia.",
+  "@theia_popup_info": {
+    "description": "Info text about theia api"
+  },
+  "close_popup": "Close",
+  "@close_popup": {
+    "description": "Text to close popup window"
+  },
+  "pod_account_popup": "Add or Create your POD",
+  "@pod_account_popup": {
+    "description": "Title to configure PODs"
+  },
+  "pod_account_popup_text": "To set up your data POD, you need to create one if you don't already have one or add an existing one.",
+  "@pod_account_popup_text": {
+    "description": "Text to configure PODs"
+  },
+  "create_pod_account": "Create",
+  "@create_pod_account": {
+    "description": "Text to create pod"
+  },
+  "add_pod_account": "Add",
+  "@add_pod_account": {
+    "description": "Text to add pod"
+  },
+  "create_pod_form": "Please fill the fields to create your POD",
+  "@create_pod_form": {
+    "description": "Text to create pod"
+  },
+  "solid_pod_username": "Username",
+  "@solid_pod_username": {
+    "description": "Text to create pod"
+  },
+  "add_pod_form": "Please fill the fields to add your POD",
+  "@add_pod_form": {
+    "description": "Text to add pod"
+  },
+  "no_frames": "The Video has no frames. Cannot save",
+  "@no_frames": {
+    "description": "Toast message displayed when the user tries to create an already existing account."
+  },
+
+  "pic_video" :"Pictures are considered videos with a single image",
+  "@pic_video": {
+    "description": "Tool tip for videos with only one picture"
+  },
+
+  "videos_info" :"Videos are any images captured by you including pictures which are considered single image videos",
+  "@videos_info": {
+    "description": "Tool tip for videos page"
+  },
+
+  "occurrences_info" :"Occurrences are urban issues identified in videos",
+  "@occurrences_info": {
+    "description": "Tool tip for occurrences page"
+  },
+  "turn_on" :"Turn on",
+  "@turn_on": {
+    "description": "Word turn on for location"
+  },
+  "location_services_disabled": "Location services are disabled.",
+  "turn_on_location_for_videos": "You must turn on location services to record videos or take pictures.",
+  "no_permission_access_location": "The app does not have permission to access location services.",
+  "allow_location_for_videos": "You must allow the app to use location services to record videos or take pictures."
+}
