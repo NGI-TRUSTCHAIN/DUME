@@ -19,7 +19,10 @@ Below is the architecture diagram of the DUME project:
 
 ### Solid Server
 
-The **Solid Server** is an implementation of the Solid protocol. Solid (Social Linked Data) is a proposed set of conventions and tools for building decentralized social applications based on Linked Data principles. This server is designed to provide secure, decentralized data storage and management, specifically tailored to handle large-scale media datasets.
+The **Solid Server** is an implementation of the [Solid Protocol](https://solidproject.org/), designed to decentralize data storage and management. Our implementation is based on [node-solid-server](https://github.com/nodeSolidServer/node-solid-server), which provides secure and scalable decentralized data management.
+
+For more details about Solid, check out the [Solid Project](https://solidproject.org/about).
+
 
 ### BackOffice
 
