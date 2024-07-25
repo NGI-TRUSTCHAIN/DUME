@@ -42,8 +42,8 @@ To get started with any of these components, follow the instructions below.
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/yourrepository.git
-    cd yourrepository/SolidServer
+    git clone https://github.com/NGI-TRUSTCHAIN/DUME.git
+    cd DUME/SolidServer
     ```
 
 2. **Install dependencies:**
@@ -60,8 +60,8 @@ To get started with any of these components, follow the instructions below.
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/yourrepository.git
-    cd yourrepository/BackOffice
+    git clone https://github.com/NGI-TRUSTCHAIN/DUME.git
+    cd DUME/BackOffice
     ```
 
 2. **Install dependencies:**
@@ -80,8 +80,8 @@ To get started with any of these components, follow the instructions below.
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/yourrepository.git
-    cd yourrepository/TheiaVision_App
+    git clone https://github.com/NGI-TRUSTCHAIN/DUME.git
+    cd DUME/TheiaVision_App
     ```
 
 2. **Install dependencies:**
