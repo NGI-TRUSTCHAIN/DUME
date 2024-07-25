@@ -5,6 +5,7 @@ module.exports = addAuthProxyHandlers
 const { createProxyMiddleware } = require('http-proxy-middleware')
 const debug = require('../debug')
 const allow = require('./allow')
+// const { validateToken } = require('../jwtoken'); // Import from jwtoken
 
 const PROXY_SETTINGS = {
   logLevel: 'silent',

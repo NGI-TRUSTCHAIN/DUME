@@ -554,7 +554,7 @@ class AccountManager {
           webId: userAccount.webId,
           deleteUrl: deleteUrl
         }
-
+        console.log('(557 account-manager.js) For testing delete url of account! -> ' + deleteUrl)
         return this.emailService.sendWithTemplate('delete-account', emailData)
       })
   }

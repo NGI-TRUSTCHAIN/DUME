@@ -13,87 +13,73 @@ async function handler (req, res, next) {
   const ldp = req.app.locals.ldp
   const contentType = getContentType(req.headers)
   debug('content-type is ', contentType)
-  // Handle SPARQL(-update?) query
-  if (contentType === 'application/sparql' ||
-      contentType === 'application/sparql-update') {
+
+  if (contentType === 'application/sparql' || contentType === 'application/sparql-update') {
     debug('switching to sparql query')
     return patch(req, res, next)
   }
 
-  // Handle container path
   let containerPath = req.path
   if (containerPath[containerPath.length - 1] !== '/') {
     containerPath += '/'
   }
 
-  // Check if container exists
-  let stats
-  try {
-    const ret = await ldp.exists(req.hostname, containerPath, false)
-    if (ret) {
-      stats = ret.stream
-    }
-  } catch (err) {
-    return next(error(err, 'Container not valid'))
-  }
-
-  // Check if container is a directory
-  if (stats && !stats.isDirectory()) {
-    debug('Path is not a container, 405!')
-    return next(error(405, 'Requested resource is not a container'))
-  }
-
-  // Dispatch to the right handler
   if (req.is('multipart/form-data')) {
-    multi()
+    return multi(req, res, next, ldp, containerPath)
   } else {
-    one()
+    return one(req, res, next, ldp, containerPath)
   }
+}
 
-  function multi () {
-    debug('receving multiple files')
+async function multi (req, res, next, ldp, containerPath) {
+  debug('receiving multiple files')
 
-    const busboy = new Busboy({ headers: req.headers })
-    busboy.on('file', async function (fieldname, file, filename, encoding, mimetype) {
-      debug('One file received via multipart: ' + filename)
-      const { url: putUrl } = await ldp.resourceMapper.mapFileToUrl(
-        { path: ldp.resourceMapper._rootPath + path.join(containerPath, filename), hostname: req.hostname })
-      try {
-        await ldp.put(putUrl, file, mimetype)
-      } catch (err) {
-        busboy.emit('error', err)
-      }
-    })
-    busboy.on('error', function (err) {
-      debug('Error receiving the file: ' + err.message)
-      next(error(500, 'Error receiving the file'))
-    })
+  const busboy = new Busboy({ headers: req.headers })
+  busboy.on('file', async function (fieldname, file, filename, encoding, mimetype) {
+    debug('One file received via multipart: ' + filename)
 
-    // Handled by backpressure of streams!
-    busboy.on('finish', function () {
-      debug('Done storing files')
-      res.sendStatus(200)
-      next()
-    })
-    req.pipe(busboy)
-  }
+    // Directly use the constructed URL for the PUT operation
+    try {
+      const urlPath = `${req.protocol}://${req.hostname}${containerPath}${filename}`
+      await ldp.put(urlPath, file, mimetype)
+      debug(`File ${filename} stored.`)
+    } catch (err) {
+      debug('Error storing file: ' + err.message)
+      busboy.emit('error', err)
+    }
+  })
 
-  function one () {
-    debug('Receving one file')
-    const { slug, link, 'content-type': contentType } = req.headers
-    const links = header.parseMetadataFromHeader(link)
-    const mimeType = contentType ? contentType.replace(/\s*;.*/, '') : ''
-    const extension = mimeType in extensions ? `.${extensions[mimeType][0]}` : ''
+  busboy.on('error', function (err) {
+    debug('Error receiving the file: ' + err.message)
+    next(error(500, 'Error receiving the file'))
+  })
 
-    ldp.post(req.hostname, containerPath, req,
-      { slug, extension, container: links.isBasicContainer, contentType }).then(
-      resourcePath => {
-        debug('File stored in ' + resourcePath)
-        header.addLinks(res, links)
-        res.set('Location', resourcePath)
-        res.sendStatus(201)
-        next()
-      },
-      err => next(err))
+  busboy.on('finish', function () {
+    debug('Done storing files')
+    res.sendStatus(200)
+    next()
+  })
+
+  req.pipe(busboy)
+}
+
+async function one (req, res, next, ldp, containerPath) {
+  debug('Receiving one file')
+  const { slug, link, 'content-type': contentType } = req.headers
+  const links = header.parseMetadataFromHeader(link)
+  const mimeType = contentType ? contentType.replace(/\s*;.*/, '') : ''
+  const extension = mimeType in extensions ? `.${extensions[mimeType][0]}` : ''
+
+  try {
+    const slugExtension = slug ? (slug + (slug.endsWith(extension) ? '' : extension)) : undefined
+    const targetPath = containerPath + (slugExtension || `unnamedResource${extension}`)
+    const url = `${req.protocol}://${req.hostname}${targetPath}`
+    await ldp.put(url, req, contentType)
+    header.addLinks(res, links)
+    res.set('Location', targetPath)
+    res.sendStatus(201)
+    next()
+  } catch (err) {
+    next(err)
   }
 }

@@ -1,18 +1,62 @@
-# DUME Solid Server Implementation
+# DUME Solid Server
 =======
 
-# solid-server in Node
+Welcome to the DUME Project repository, an extension of the Node Solid Server.
+Our project builds upon the base code of the [Node Solid Server](https://github.com/nodeSolidServer/node-solid-server) to fulfill the needs of the DUME project. 
+This README will guide you through deploying and using the server, along with providing detailed information about the DUME project, its use case, added functionalities, and modifications.
 
-[![](https://img.shields.io/badge/project-Solid-7C4DFF.svg?style=flat-square)](https://github.com/solid/solid)
-[![Build Status](https://travis-ci.org/solid/node-solid-server.svg?branch=master&style=flat-square)](https://travis-ci.org/solid/node-solid-server)
-[![NPM Version](https://img.shields.io/npm/v/solid-server.svg?style=flat-square)](https://npm.im/solid-server)
-[![Gitter chat](https://img.shields.io/badge/gitter-join%20chat%20%E2%86%92-brightgreen.svg?style=flat-square)](http://gitter.im/solid/node-solid-server)
+Table of Contents
+-----------------
 
-> [Solid](https://github.com/solid) server in [NodeJS](https://nodejs.org/)
+1.  [Introduction](#introduction)
+2.  [DUME Project Overview](#dume-project-overview)
+3.  [Installation](#installation)
+4.  [Usage](#usage)
+5.  [Testing](#testing)
+6.  [Contribution](#contribution)
+8.  [DUME - Solid Extension](#dume-solid-extension)
+9.  [License](#license)
 
-`solid-server` lets you run a Solid server on top of the file-system. You can use it as a [command-line tool](https://github.com/solid/node-solid-server/blob/master/README.md#command-line-usage) (easy) or as a [library](https://github.com/solid/node-solid-server/blob/master/README.md#library-usage) (advanced).
+Introduction
+------------
 
-The [solid test suite](https://github.com/nodeSolidServer/node-solid-server/blob/main/test/surface/run-solid-test-suite.sh) runs as part of GitHub Actions on this repository, ensuring that this server is always (to the best of our knowledge) fully spec compliant.
+The DUME project is built on the foundation of the [Node Solid Server](https://github.com/nodeSolidServer/node-solid-server). Our primary aim is to extend or adapt the functionalities of the Solid Server implementation to manage large-scale media datasets on decentralized web platforms, specifically tailored for the Theia Vision platform.
+
+DUME Project Overview
+---------------------
+
+### Objectives
+
+Project DUME seeks to revolutionize digital platforms like Theia Vision by shifting towards a decentralized, user-centric framework. Key objectives include:
+
+-   Extending or adapting the Solid implementation to handle large-scale media data management.
+-   Implementing decentralized user data control.
+-   Enhancing AI-driven urban event detection while ensuring data privacy.
+
+### Architecture
+
+![Architecture](Images/Architecture.jpg?raw=true "Title")
+
+### Theia Vision
+
+The Theia Vision is a key component of the DUME project, designed to empower both individuals and organizations in the effective monitoring and management of urban environments through advanced image analysis. 
+Theia Vision leverages state-of-the-art AI to enhance the management of public spaces through advanced image analysis. It excels in identifying and tracking various occurrences within public areas, ranging from environmental concerns like improper waste disposal and graffiti to safety issues such as unattended bags or suspicious activities. 
+There are three main components of Theia Vision:
+-  An mobile app that encourages both professional and citizen contributions by capturing images while they travel in their daily endevours.
+-  A server with an AI that analises the captured images to detect anomalies.
+-  A web platform that reports the detected anomalies.
+
+Thus far these images were stored in Theia Vision server thus making their owners relinquish any rights over how they were used.
+
+The introduction of personal SOLID pods as hosts for these images tacles this issue by ensuring that the users retain control over their captured images and their usage. 
+
+Installation
+------------
+
+## solid-server in Node
+
+The original features of Node Solid Server remain intact in this implementation, and the same applies to the installation guide. 
+For convenience we reproduce here the installation instructions.
 
 ## Solid Features supported
 - [x] [Linked Data Platform](http://www.w3.org/TR/ldp/)
@@ -28,10 +72,7 @@ The [solid test suite](https://github.com/nodeSolidServer/node-solid-server/blob
 
 ### Install
 
-You can install and run the server either using Node.js directly or using
-[Docker](https://www.docker.com/).  This and the following sections describe the
-first approach, for the second approach see the section [use Docker](#use-docker)
-Section below.
+This and the following sections describe the installation using Node.js directly.
 
 **Note**: If using Git for Windows, it is helpful to use the -verbose flag to see the progress of the install.
 
@@ -149,13 +190,6 @@ also add to `config.json`
   "emailAuthPass": "gmailPass"
 ```
 
-### Upgrading from version <5.3
-Please take into account the [v5.3 upgrade notes](https://github.com/solid/node-solid-server/blob/master/CHANGELOG.md#530-upgrade-notes).
-
-### Upgrading from version <5.0
-To upgrade from version 4 to the current version 5, you need to run a migration script, as explained in the [v5.0 upgrade notes](https://github.com/solid/node-solid-server/blob/master/CHANGELOG.md#500-upgrade-notes).
-
-Also, be aware that starting from version 5, third-party apps are untrusted by default. To trust a third-party app, before you can log in to it, you first need to go to your profile at https://example.com/profile/card#me (important to include the '#me' there), and then hover over the 'card' header to reveal the context menu. From there, select the 'A' symbol to go to your trusted applications pane, where you can whitelist third-party apps before using them. See also https://github.com/solid/node-solid-server/issues/1142 about streamlining this UX flow.
 
 ### Extra flags (expert)
 The command line tool has the following options
@@ -243,59 +277,6 @@ CLI flags take precedence over Environment variables, which take precedence over
 
 Configuring Solid via the config file can be a concise and convenient method and is the generally recommended approach. CLI flags can be useful when you would like to override a single configuration parameter, and using environment variables can be helpful in situations where you wish to deploy a single generic Docker image to multiple environments.
 
-## Use Docker
-
-
-### Production usage
-
-See the [documentation to run Solid using docker and docker-compose](https://github.com/solid/node-solid-server/tree/master/docker-image).
-
-We have automatic builds set up, so commits to master will trigger a build of https://hub.docker.com/r/nodesolidserver/node-solid-server.
-
-### Development usage
-
-If you want to use Docker in development, you can build and run the image locally with either docker-compose —
-
-```bash
-git clone https://github.com/solid/node-solid-server
-cd node-solid-server
-docker-compose up -d
-```
-
- — or these manual commands —
-
-```bash
-git clone https://github.com/solid/node-solid-server
-cd node-solid-server
-docker build -t node-solid-server .
-
-docker run -p 8443:8443 --name solid node-solid-server
-```
-
-
-This will enable you to login to solid on https://localhost:8443 and then create a new account
-but not yet use that account. After a new account is made you will need to create an entry for 
-it in your local (/etc/)hosts file in line with the account and subdomain, i.e. --
-
-```pre
-127.0.0.1	newsoliduser.localhost
-```
-
-You can modify the config within the docker container as follows:
-
- - Copy the `config.json` to the current directory with: 
-   ```bash
-   docker cp solid:/usr/src/app/config.json .
-   ```
- - Edit the `config.json` file
- - Copy the file back with 
-   ```bash
-   docker cp config.json solid:/usr/src/app/
-   ```
- - Restart the server with 
-   ```bash
-   docker restart solid
-   ```
 
 ## Library Usage
 
@@ -377,9 +358,10 @@ Run your app with the `DEBUG` variable set:
 $ DEBUG="solid:*" node app.js
 ```
 
-## Testing `solid` Locally
+Testing Solid Locally
+---------------------
 
-#### Pre-Requisites
+## Pre-Requisites
 
 In order to really get a feel for the Solid platform, and to test out `solid`,
 you will need the following:
@@ -395,7 +377,7 @@ While these steps are technically optional (since you could launch it in
 HTTP/LDP-only mode), you will not be able to use any actual Solid features
 without them.
 
-#### Creating a certificate for local testing
+## Creating a certificate for local testing
 
 When deploying `solid` in production, we recommend that you go the
 usual Certificate Authority route to generate your SSL certificate (as you
@@ -403,14 +385,14 @@ would with any website that supports HTTPS). However, for testing it locally,
 you can easily [generate a self-signed certificate for whatever domain you're
 Working with](https://github.com/solid/node-solid-server#how-do-i-get-an-ssl-key-and-certificate).
 
-#### Accessing your server
+## Accessing your server
 
 If you started your `solid` server locally on port 8443 as in the example
 above, you would then be able to visit `https://localhost:8443` in the browser
 (ignoring the Untrusted Connection browser warnings as usual), where your
 `solid` server would redirect you to the default data viewer app.
 
-#### Editing your local `/etc/hosts`
+## Editing your local `/etc/hosts`
 
 To test certificates and account creation on subdomains, `solid`'s test suite
 uses the following localhost domains: `nic.localhost`, `tim.localhost`, and
@@ -426,7 +408,7 @@ Edit your `/etc/hosts` file, and append:
 127.0.0.1 nicola.localhost
 ```
 
-#### Running the Unit Tests
+## Running the Unit Tests
 
 ```bash
 $ npm test
@@ -457,7 +439,8 @@ it. It is currently adviceable to remove it or set it inactive rather
 than set a large quota, because the current implementation will impair
 write performance if there is a lot of data.
 
-## Get help and contribute
+Help and contribute
+-------------------
 
 Solid is only possible because of a large community of [contributors](https://github.com/solid/node-solid-server/blob/master/CONTRIBUTORS.md).
 A heartfelt thank you to everyone for all of your efforts!
@@ -472,10 +455,101 @@ You can receive or provide help too:
 
 Have a look at [CONTRIBUTING.md](https://github.com/solid/node-solid-server/blob/master/CONTRIBUTING.md).
 
-## License
 
+DUME Solid Extension
+----------------------
+
+# Added functionalities and modifications
+
+## New Endpoints
+
+**/new-pod** - Endpoint to handle the creation of new user pods. Although this function Is already possible in the original node solid server, (using the endpoint /api/accounts/new) It was designed to be used In a browser form and failed to return proper error codes with clear messages and included redirection to the user pod. To make the pod created more app friendly, we created this new endpoint that simply returns the standard HTTP codes upon creation or failure to do so.
+Added files - create-new-pod.js
+Modified files - ldp-middleware.js
+
+
+**/jwt** - Endpoint to obtain an access token to be used as the user identifier to access resources or do actions.
+Added files - jwtoken.js
+Modified files - webid-oidc.js | ldp-middleware.js | create-app.js
+
+**/search-logs** - Endpoint as well as the whole logging Infrastructure was also Implemented In our node solid server to document all accesses to resources within a pod. The logs follow the following format:\
+timestamp -method - resource - origin - statusCode - duration (in Ms) - userAgent - userWebId
+
+For example, this is a log of a logged user trying to post something In another user's pod without having been granted the permission to do so:
+
+2024-07-15T10:39:27.001Z - PUT - /theia-vision/ledger.json - ::ffff:37.189.223.22 - 403 - 333.302ms - PostmanRuntime/7.37.3 - https://test123.dume-arditi.com/profile/card#me
+
+Added files - access-logging.js | server-logging.js | search-logs.js
+Modified files - ldp-middleware.js
+
+**/api/metadata-search** - Endpoint that allows for complex queries over various filtering criteria In the Json files that are posted in the scope of theia-vision to detail the image collections.
+
+This endpoint Is rather particular to our concrete use case, as it needed to be specific enough to be useful, and what It does Is lump all json files In the specified subdirectory and search within them, In the specified class for any of the defined parameters (startDate, endDate, coordinates, range (of coordenates), classes (of the anomaly detected), analysed, dateAnalysedStart, dateAnalysedEnd).
+
+All these parameters are optional and can be used to broaden or restrict the search and return the intended set of images and their information (like the url to access them).
+
+Added files - directory-utils.js | metadata-search-handler.js
+Modified files - ldp-middleware.js
+
+**/query-folders** - Endpoint used within a pod to traverse all its content within the specified subdirectory (can be /* for the root directory) and then sends a list of the existing folders within that location. This Is a particularly useful functionality In any scope of use for a solid pod, as It allows users to have a complete perception of their pod structure without having to actually "browse" them within the server website.
+
+Added files - directory-utils.js | query-files.js
+Modified files - ldp-middleware.js
+
+**/query-files** - Endpoint to traverse the content of a pod within the specified subdirectory task but for files, allowing users to have a complete list of files within any specific directory (and subdirectories).
+
+Both of these endpoints have an additional date parameter so that users can limit their search to recent files. This Is particularly useful for our use case, as it allows the AI server to "record" the last access and then query, If granted access, the user pod for what Is new since then.
+
+Added files - directory-utils.js | query-folders.js
+Modified files - ldp-middleware.js
+
+**/grantaccess** - Endpoint to grant accesses, to one's pod to other users or apps. This endpoint allows users to grant a specific (or multiple) kinds of access (Read, Write, Append, Control) to a specific resource, being It a file or a folder.
+
+Added files - grant-access.js
+Modified files - ldp-middleware.js
+
+**/revokeaccess** - Endpoint to revoke accesses, to one's pod to other users or apps. This endpoint allows users to revoke a specific kind of access (Read, Write, Append, Control) to a specific resource, being It a file or a folder.
+
+Added files - grant-access.js
+Modified files - ldp-middleware.js
+
+**/apidoc** - Documentation endpoint.
+Modified files - All the files with routing.
+
+## Improved Features
+
+**Post** - Fixes in the multipart post as it was not working properly.
+Modified files - post.js | ldp.js
+
+**Get** - Adition of the batch option to retrieve the content of a whole folder as a zip file.
+Modified files - get.js
+
+## Endpoints Documentation
+
+The documentation for the existing endpoints of this implementation of Solid Server can be foud at [https://dume-arditi.com/apidoc](https://dume-arditi.com/apidoc)
+
+
+
+# Theia Vision Use Case
+
+Bellow are some sequence diagrams of the essential use cases for the integration of the Solid pods with the Theia-Vision Infrastructure
+
+### Application
+
+![RegisterSolidServer](Images/RegisterSolidServer.jpg?raw=true "Title")
+![PostToSolid](Images/PostToSolid.jpg?raw=true "Title")
+
+### AI Server
+
+![AIServer](Images/AIServer.jpg?raw=true "Title")
+
+
+### Web platform
+
+![WebApp](Images/WebApp.jpg?raw=true "Title")
+
+
+License
+-------
 [The MIT License](https://github.com/solid/node-solid-server/blob/master/LICENSE.md)
-=======
-# DUME
-=======
-=======
+

@@ -164,6 +164,38 @@ class CreateAccountRequest extends AuthRequest {
   }
 
   /**
+   * Creates an account for a given user (from a POST to `/new-pod`)
+   *
+   * @throws {Error} If errors were encountering while validating the username.
+   *
+   * @return {Promise<UserAccount>} Resolves with newly created account instance
+   */
+  async createPod () {
+    const userAccount = this.userAccount
+    const accountManager = this.accountManager
+
+    if (userAccount.externalWebId) {
+      const error = new Error('Linked users not currently supported, sorry (external WebID without TLS?)')
+      error.statusCode = 400
+      throw error
+    }
+    this.cancelIfUsernameInvalid(userAccount)
+    this.cancelIfBlacklistedUsername(userAccount)
+    await this.cancelIfAccountExists(userAccount)
+    await this.createAccountStorage(userAccount)
+    await this.saveCredentialsFor(userAccount)
+
+    // 'return' not used deliberately, no need to block and wait for email
+    /*
+    if (userAccount && userAccount.email) {
+      debug('Sending Welcome email')
+      accountManager.sendWelcomeEmail(userAccount)
+    }
+    */
+    return userAccount
+  }
+
+  /**
    * Rejects with an error if an account already exists, otherwise simply
    * resolves with the account.
    *
@@ -462,7 +494,6 @@ class CreateTlsAccountRequest extends CreateAccountRequest {
     return userAccount
   }
 }
-
 module.exports = CreateAccountRequest
 module.exports.CreateAccountRequest = CreateAccountRequest
 module.exports.CreateTlsAccountRequest = CreateTlsAccountRequest

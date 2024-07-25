@@ -140,7 +140,7 @@ class LDP {
     // POST without content type is forbidden
     if (!contentType) {
       throw error(400,
-        'POSTrequest requires a content-type via the Content-Type header')
+        'POST request requires a content-type via the Content-Type header')
     }
 
     const ldp = this
@@ -213,22 +213,16 @@ class LDP {
   async put (url, stream, contentType) {
     const container = (url.url || url).endsWith('/')
 
-    // PUT without content type is forbidden, unless PUTting container
     if (!contentType && !container) {
-      throw error(400,
-        'PUT request requires a content-type via the Content-Type header')
+      throw error(400, 'PUT request requires a content-type via the Content-Type header')
     }
 
-    // reject resource with percent-encoded $ extension
-    const dollarExtensionRegex = /%(?:24)\.[^%(?:24)]*$/ // /\$\.[^$]*$/
+    const dollarExtensionRegex = /%(?:24)\.[^%(?:24)]*$/
     if ((url.url || url).match(dollarExtensionRegex)) {
       throw error(400, 'Resource with a $.ext is not allowed by the server')
     }
 
-    // First check if we are above quota
     let isOverQuota
-    // Someone had a reason to make url actually a req sometimes but not
-    // all the time. So now we have to account for that, as done below.
     const hostname = typeof url !== 'string' ? url.hostname : URL.parse(url).hostname
     try {
       isOverQuota = await overQuota(this.resourceMapper.resolveFilePath(hostname), this.serverUri)
@@ -239,48 +233,45 @@ class LDP {
       throw error(413, 'User has exceeded their storage quota')
     }
 
-    // Set url using folder/.meta. This is Hack to find folder path
     if (container) {
       if (typeof url !== 'string') {
-        url.url = url.url + suffixMeta
+        url.url = url.url + this.suffixMeta
       } else {
-        url = url + suffixMeta
+        url = url + this.suffixMeta
       }
       contentType = 'text/turtle'
     }
 
     const { path } = await this.resourceMapper.mapUrlToFile({ url, contentType, createIfNotExists: true })
-    // debug.handlers(container + ' item ' + (url.url || url) + ' ' + contentType + ' ' + path)
-    // check if file exists, and in that case that it has the same extension
-    if (!container) { await this.checkFileExtension(url, path) }
 
-    // Create the enclosing directory, if necessary, do not create pubsub if PUT create container
-    await this.createDirectory(path, hostname, !container)
-
-    // clear cache
-    if (path.endsWith(this.suffixAcl)) {
-      const { url: aclUrl } = await this.resourceMapper.mapFileToUrl({ path, hostname })
-      clearAclCache(aclUrl)
-      // clearAclCache()
+    if (!container) {
+      const directoryPath = dirname(path)
+      try {
+        await mkdirp(directoryPath)
+        console.log(`Directory ensured: ${directoryPath}`)
+      } catch (err) {
+        console.error(`Error ensuring directory exists: ${err}`)
+        throw err
+      }
     }
 
-    // Directory created, now write the file
-    if (container) return
-    return withLock(path, () => new Promise((resolve, reject) => {
-      // HACK: the middleware in webid-oidc.js uses body-parser, thus ending the stream of data
-      // for JSON bodies. So, the stream needs to be reset
-      if (contentType.includes('application/json')) {
-        stream = intoStream(JSON.stringify(stream.body))
-      }
-      const file = stream.pipe(fs.createWriteStream(path))
-      file.on('error', function () {
-        reject(error(500, 'Error writing data'))
-      })
-      file.on('finish', function () {
-        debug.handlers('PUT -- Wrote data to: ' + path)
-        resolve()
-      })
-    }))
+    if (container) {
+      // You may want to handle container-specific logic here if needed.
+    } else {
+      return withLock(path, () => new Promise((resolve, reject) => {
+        if (contentType.includes('application/json')) {
+          stream = intoStream(JSON.stringify(stream.body))
+        }
+        const file = stream.pipe(fs.createWriteStream(path))
+        file.on('error', function () {
+          reject(error(500, 'Error writing data'))
+        })
+        file.on('finish', function () {
+          console.log('PUT -- Wrote data to: ' + path)
+          resolve()
+        })
+      }))
+    }
   }
 
   /**

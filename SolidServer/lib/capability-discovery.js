@@ -16,6 +16,19 @@ function capabilityDiscovery () {
   const router = express.Router('/')
 
   // Advertise the server capability discover endpoint
+  /**
+   * @api {get} /.well-known/solid Advertise server capability discovery endpoint
+   * @apiName GetServerCapability
+   * @apiGroup Server
+   * @apiPermission none
+   * @apiSuccess {Object} capabilities JSON object containing server capabilities
+   * @apiExample {curl} Example usage:
+   *    curl -i https://dume-arditi.com/.well-known/solid
+   * @apiExample {javascript} Example usage:
+   *    fetch('https://dume-arditi.com/.well-known/solid')
+   *      .then(response => response.json())
+   *      .then(data => console.log(data));
+   */
   router.get('/.well-known/solid', serviceCapabilityDocument())
   return router
 }

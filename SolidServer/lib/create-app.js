@@ -27,6 +27,12 @@ const { routeResolvedFile } = require('./utils')
 const ResourceMapper = require('./resource-mapper')
 const aclCheck = require('@solid/acl-check')
 const { version } = require('../package.json')
+const listEndpoints = require('express-list-endpoints')
+const fs = require('fs')
+// const { validateToken, requireAuth } = require('./jwtoken'); // Import JWT validation and auth middleware
+
+// Import logging functions
+const { fileLogger, logPodAccess, getPodName, createAccessLogsAcl } = require('./server-logging')
 
 const corsSettings = cors({
   methods: [
@@ -114,6 +120,14 @@ function createApp (argv = {}) {
     authProxy(app, argv.authProxy)
   }
 
+  // Ensure ResourceMapper is available in app.locals
+  app.locals.resourceMapper = argv.resourceMapper
+  // Log accesses to the pod.
+  // app.use(logPodAccess);
+
+  // Add JWT validation middleware
+  // app.use(validateToken);
+
   // Attach the LDP middleware
   app.use('/', LdpMiddleware(corsSettings))
 
@@ -146,6 +160,13 @@ function createApp (argv = {}) {
 
   // Errors
   app.use(errorPages.handler)
+
+  // List all endpoints and save to a file
+  const endpoints = listEndpoints(app)
+  console.log(endpoints)
+
+  // Save the endpoints to a file for documentation purposes
+  fs.writeFileSync('endpoints.json', JSON.stringify(endpoints, null, 2))
 
   return app
 }

@@ -3,6 +3,7 @@
 const nodemailer = require('nodemailer')
 const path = require('path')
 const debug = require('../debug').email
+const config = require('../../config.json')
 
 /**
  * Models a Nodemailer-based email sending service.
@@ -31,11 +32,25 @@ class EmailService {
    * Optional default Sender / `from:` address:
    * @param [config.sender] {string} e.g. 'Solid Server <no-reply@databox.me>'
    */
-  constructor (templatePath, config) {
+  /* constructor (templatePath, config) {
     this.mailer = nodemailer.createTransport(config)
 
     this.sender = this.initSender(config)
 
+    this.templatePath = templatePath
+  } */
+  constructor (templatePath) {
+    this.mailer = nodemailer.createTransport({
+      host: config.emailHost,
+      port: config.emailPort,
+      secure: config.emailPort === 465,
+      auth: {
+        user: config.emailAuthUser,
+        pass: config.emailAuthPass
+      }
+    })
+
+    this.sender = config.emailSender
     this.templatePath = templatePath
   }
 
@@ -55,7 +70,8 @@ class EmailService {
    *
    * @return {string} Sender `from:` address
    */
-  initSender (config) {
+
+  /* initSender (config) {
     let sender
 
     if (config.sender) {
@@ -65,7 +81,7 @@ class EmailService {
     }
 
     return sender
-  }
+  } */
 
   /**
    * Sends an email (passes it through to nodemailer).
@@ -74,9 +90,18 @@ class EmailService {
    *
    * @return {Promise<EmailResponse>}
    */
-  sendMail (email) {
+  /* sendMail (email) {
     email.from = email.from || this.sender
 
+    debug('Sending email from address: ' + email.from)
+    debug('Sending email to ' + email.to)
+    return this.mailer.sendMail(email)
+  } */
+
+  sendMail (email) {
+    email.from = this.sender
+
+    debug('Sending email from address: ' + email.from)
     debug('Sending email to ' + email.to)
     return this.mailer.sendMail(email)
   }

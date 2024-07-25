@@ -20,6 +20,19 @@ function paymentPointerDiscovery () {
   const router = express.Router('/')
 
   // Advertise the server payment pointer discover endpoint
+  /**
+   * @api {get} /.well-known/pay Advertise server payment pointer discovery endpoint
+   * @apiName GetPaymentPointer
+   * @apiGroup Payment
+   * @apiPermission none
+   * @apiSuccess {String} paymentPointer The discovered payment pointer URL
+   * @apiExample {curl} Example usage:
+   *    curl -i https://dume-arditi.com/.well-known/pay
+   * @apiExample {javascript} Example usage:
+   *    fetch('https://dume-arditi.com/.well-known/pay')
+   *      .then(response => response.json())
+   *      .then(data => console.log(data));
+   */
   router.get('/.well-known/pay', paymentPointerDocument())
   return router
 }

@@ -6,6 +6,7 @@ const fs = require('fs')
 const glob = require('glob')
 const _path = require('path')
 const $rdf = require('rdflib')
+const archiver = require('archiver') // Batch GET
 const Negotiator = require('negotiator')
 const mime = require('mime-types')
 
@@ -23,9 +24,19 @@ async function handler (req, res, next) {
   const includeBody = req.method === 'GET'
   const negotiator = new Negotiator(req)
   const baseUri = ldp.resourceMapper.resolveUrl(req.hostname, req.path)
-  const path = res.locals.path || req.path
+  let path = res.locals.path || req.path
   const requestedType = negotiator.mediaType()
   const possibleRDFType = negotiator.mediaType(RDFs)
+  const isBatchRequest = req.query.batch === 'true' // Check for batch query parameter
+  const isListRequest = req.query.content === 'list' // Check for list query parameter
+  console.log(`Request: ${req.originalUrl}, Batch: ${isBatchRequest}, List: ${isListRequest}`)
+
+  // Append a trailing slash if not present and it's a directory request
+  if (isBatchRequest || isListRequest) {
+    if (path.endsWith('/')) {
+      path = path.slice(0, -1)
+    }
+  }
 
   // deprecated kept for compatibility
   res.header('MS-Author-Via', 'SPARQL')
@@ -48,6 +59,14 @@ async function handler (req, res, next) {
     possibleRDFType: possibleRDFType,
     range: req.headers.range,
     contentType: req.headers.accept
+  }
+
+  if (isBatchRequest) {
+    return handleBatchRequest(ldp, options, req, res, next)
+  }
+
+  if (isListRequest) {
+    return handleListRequest(ldp, options, req, res, next)
   }
 
   let ret
@@ -136,6 +155,77 @@ async function handler (req, res, next) {
   } catch (err) {
     debug('error translating: ' + req.originalUrl + ' ' + contentType + ' -> ' + possibleRDFType + ' -- ' + 406 + ' ' + err.message)
     return next(error(500, 'Cannot serve requested type: ' + requestedType))
+  }
+}
+
+// retrieve folder content in a zip file
+async function handleBatchRequest (ldp, options, req, res, next) {
+  try {
+    const url = ldp.resourceMapper.resolveUrl(options.hostname, options.path)
+    const folderPath = (await ldp.resourceMapper.mapUrlToFile({ url, hostname: options.hostname })).path
+    console.log(`Folder Path: ${folderPath}`)
+    const files = await fs.promises.readdir(folderPath) // Using fs.promises.readdir to read directory contents
+
+    // Extract folder name from path
+    const folderName = _path.basename(folderPath)
+
+    // Create a ZIP archive and pipe it to the response
+    const archive = archiver('zip', { zlib: { level: 9 } }) // Set the compression level
+
+    archive.on('error', function (err) {
+      return next(err)
+    })
+
+    res.setHeader('Content-Type', 'application/zip') // Set the content type to application/zip
+    // res.attachment('folder-contents.zip'); // Set the response header to indicate a file download
+    res.setHeader('Content-Disposition', `attachment; filename=${folderName}.zip`) // Set the response header to indicate a file download with the folder name
+    archive.pipe(res)
+
+    for (const file of files) {
+      const filePath = _path.join(folderPath, file)
+      const fileStats = await fs.promises.stat(filePath) // Using fs.promises.stat to get file stats
+
+      if (fileStats.isDirectory()) {
+        archive.directory(filePath, file)
+      } else {
+        archive.file(filePath, { name: file })
+      }
+    }
+
+    await archive.finalize() // Finalize the archive (i.e., we are done appending files but streams have to finish yet)
+  } catch (err) {
+    console.error(`Batch request failed: ${err.message}`)
+    return next(error(500, 'Batch request failed: ' + err.message))
+  }
+}
+
+// List folder content
+async function handleListRequest (ldp, options, req, res, next) {
+  try {
+    const url = ldp.resourceMapper.resolveUrl(options.hostname, options.path)
+    const folderPath = (await ldp.resourceMapper.mapUrlToFile({ url, hostname: options.hostname })).path
+    console.log(`Folder Path: ${folderPath}`)
+    const files = await fs.promises.readdir(folderPath) // Using fs.promises.readdir to read directory contents
+
+    const listData = await Promise.all(files.map(async file => {
+      const filePath = _path.join(folderPath, file)
+      const fileStats = await fs.promises.stat(filePath) // Using fs.promises.stat to get file stats
+      const fileUrl = await ldp.resourceMapper.mapFileToUrl({ path: filePath, hostname: options.hostname })
+
+      return {
+        name: file,
+        url: fileUrl.url,
+        mtime: fileStats.mtime,
+        size: fileStats.size,
+        isDirectory: fileStats.isDirectory()
+      }
+    }))
+
+    res.setHeader('Content-Type', 'application/json') // Ensure the response is JSON
+    res.json(listData)
+  } catch (err) {
+    console.error(`List request failed: ${err.message}`)
+    return next(error(500, 'List request failed: ' + err.message))
   }
 }
 
