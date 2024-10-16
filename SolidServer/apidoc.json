@@ -1,0 +1,17 @@
+{
+  "name": "DUME Project",
+  "version": "1.0.0",
+  "description": "DUME - SOLID API Documentation",
+  "title": "DUME - SOLID API Documentation",
+  "url": "https://dume-arditi.com",
+  "defaultVersion": "1.0.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2021-12-01T20:00:00.000Z",
+    "url": "http://apidocjs.com",
+    "version": "0.27.1"
+  },
+  "template": {
+    "forceLanguage": "en"
+  }
+}
