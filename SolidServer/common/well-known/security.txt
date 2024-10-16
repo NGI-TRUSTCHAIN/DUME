@@ -1,2 +1,0 @@
-# Report security issues responsibly
-Contact: admin+security@inrupt.com
