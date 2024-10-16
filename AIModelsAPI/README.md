@@ -36,12 +36,12 @@ The Theia Vision AI Inference API allows users to run object detection on images
 
 ```bash
 git clone https://github.com/yourusername/theia-vision-ai-inference-api.git
-cd theia-vision-ai-inference-api
+cd theia-vision-ai-inference-api```
 
 ## Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt```
 
 ### Environment Variables
 
@@ -50,12 +50,12 @@ Create a `.env` file in the root directory and add the following:
 ```env
 SOLID_USERNAME=your_solid_username
 SOLID_PASSWORD=your_solid_password
-MODEL_PATH=/path/to/your/yolov7/model
+MODEL_PATH=/path/to/your/yolov7/model```
 
 ### Run the Application
 
 ```bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload```
 The API should now be running on http://localhost:8000.
 
 ### Usage
@@ -67,4 +67,4 @@ You can trigger inference by sending a `POST` request to the `/ai-models/run-inf
 
 ```bash
 curl -X POST http://localhost:8000/ai-models/run-inference
-Or, you can integrate this request into another application.
+Or, you can integrate this request into another application.```
