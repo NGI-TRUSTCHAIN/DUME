@@ -23,10 +23,13 @@ The **Solid Server** is an implementation of the [Solid Protocol](https://solidp
 
 For more details about Solid, check out the [Solid Project](https://solidproject.org/about).
 
+[SolidServer](SolidServer/README.md): Documentation for the Solid Server.
 
 ### BackOffice
 
 The **BackOffice** application is built using Next.js. It serves as the administrative interface for managing the various aspects of the Solid Server and TheiaVision App. The BackOffice provides functionalities for user management, data administration, and system monitoring, allowing administrators to oversee the decentralized network effectively.
+
+[BackOffice](BackOffice/README.md): Documentation for the BackOffice application.
 
 ### TheiaVision App
 
@@ -34,9 +37,18 @@ The **TheiaVision App** is a mobile application developed using Flutter. The app
 
 [Download TheiaVision App](https://play.google.com/store/apps/details?id=com.logimade.theia_vision_app)
 
+
+[TheiaVision_App](TheiaVision_App/README.md): Documentation for Theia Vision App.
 ## Getting Started
 
 To get started with any of these components, follow the instructions below.
+
+### AI Models API
+
+The **AI Models API** provides a collection of machine learning and deep learning models designed to process and analyze data for TheiaVision and other integrated applications. This API supports functionalities such as image recognition, object detection, and data anonymization, ensuring efficient and scalable AI-driven solutions.
+
+[AI Models API Documentation](AIModelsAPI/README.md): Detailed information about the AI Models API.
+
 
 ### Solid Server
 
