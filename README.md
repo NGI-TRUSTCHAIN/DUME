@@ -98,9 +98,9 @@ npm install
    ```json
    {
      "port": 8443,
-     "auth: 'oidc',
-     "configPath: './config',
-     "dbPath": './.db'
+     "auth": "oidc",
+     "configPath": "./config",
+     "dbPath": "./.db"
    }
    ```
 ### Run the Server:
@@ -110,7 +110,7 @@ Start the server using the following command:
 ```bash
 npm start
 ```
-The Solid Server will be running at: https://localhost:8443.
+The Solid Server will be running at: http://localhost:8443.
 
 ## Step 4: Set Up the BackOffice
 
@@ -132,9 +132,9 @@ npm install
    touch .env
    ```
    
-2. Add the following environment variables to the .env file:
+2. Add your environment variables to the .env file. An example of the structure is provided below:
  ```bash
- SOLID_SERVER_URL=https://localhost:8443
+ SOLID_SERVER_URL=http://localhost:8443
  DATABASE_URL=postgis://localhost:27017
  JWT_SECRET=your_jwt_secret
  ```
@@ -192,7 +192,7 @@ flutter run
 ```
 
 ### Connect to Solid Server:
-Once the app is running, configure the server URL in the app settings (/controller/solid-protocol/request_service.dart) to point to your Solid Server: https://localhost:8443.
+Once the app is running, configure the server URL in the app settings (`/controller/solid-protocol/request_service.dart`) to point to your Solid Server: https://localhost:8443.
 
 ## Contributing
 
